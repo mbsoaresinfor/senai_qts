@@ -8,6 +8,8 @@ public class CorreiosAPIServico {
 		this.correiosAPI = correiosAPI;
 	}	
 	
+	public CorreiosAPIServico() {}
+	
 	public Endereco buscar(String cep) {
 		Endereco endereco = correiosAPI.buscaCep(cep);
 		if(endereco == null) {
