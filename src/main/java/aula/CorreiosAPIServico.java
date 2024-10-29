@@ -11,8 +11,11 @@ public class CorreiosAPIServico {
 	public CorreiosAPIServico() {}
 	
 	public Endereco buscar(String cep) {
+		
+		//9052001
 		Endereco endereco = correiosAPI.buscaCep(cep);
-		if(endereco == null) {
+		if(endereco == null || (endereco !=null &&
+							endereco.getLogradouro() == null) ) {
 			Endereco enderecoNaoEncontrado = new Endereco();
 			enderecoNaoEncontrado.setBairro("BAIRRO NAO ENCONTRADO");
 			enderecoNaoEncontrado.setUf("UF NÃO ENCONTRADO");
