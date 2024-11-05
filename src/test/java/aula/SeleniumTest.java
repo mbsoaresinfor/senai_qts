@@ -12,6 +12,7 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -26,41 +27,42 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class SeleniumTest {
     
       static WebDriver driver = null;
+   private String ENDERECO_SERVIDOR = "http://localhost//";
       
       private static String namePaginaPrincipal ;
     public SeleniumTest() {
     }
     
     
-    //@BeforeAll
+    @BeforeAll
     public static void setUp() {
-         System.setProperty("webdriver.chrome.driver", 
-	                "C:\\chromedriver_win32\\chromedriver.exe");
-	        
-        
-         driver = new ChromeDriver();
+         System.
+         setProperty("webdriver.chrome.driver", 
+	                "C:\\chromedriver_win64\\chromedriver.exe");
+	    driver = new ChromeDriver();
 
-        driver.get("C:\\Users\\fatec.senai\\Documents\\qts\\src\\main\\java\\sistema\\login.html");
+        //driver.get("C:\\Users\\fatec.senai\\Documents\\qts\\src\\main\\java\\sistema\\login.html");
     
-        namePaginaPrincipal = driver.getWindowHandle();
+        //namePaginaPrincipal = driver.getWindowHandle();
     }
     
     
-    @Disabled
+    
     @Test
     public void testTituloPaginaLogin(){
     	// arrange
-    	driver.get("C:\\Users\\fatec.senai\\Documents\\qts\\src\\main\\java\\sistema\\login.html");      
-    	String tituloExperado ="Pagina de Login"; 
+    	driver.get(ENDERECO_SERVIDOR + "login.html");      
+    	String tituloEsperado ="Pagina de Login"; 
         
     	// act, assert
-    	Assertions.assertEquals(tituloExperado,driver.getTitle());
+    	Assertions.assertEquals(tituloEsperado,
+    			driver.getTitle());
     }
     
-    @Disabled
-     @Test
-    public void testLogin(){
-        driver.get("C:\\Users\\fatec.senai\\Documents\\qts\\src\\main\\java\\sistema\\login.html");
+    @DisplayName("Teste que valida um login de sucesso")
+    @Test
+    public void testLoginSucesso(){
+        driver.get(ENDERECO_SERVIDOR + "login.html");
         
         WebElement campoNome = driver.findElement(By.id("nome"));
          WebElement campoSenha = driver.findElement(By.id("senha"));
@@ -69,13 +71,15 @@ public class SeleniumTest {
          campoSenha.sendKeys("123");
          submit.click();
          String codigProximaPagina =  driver.getPageSource();
-         Assertions.assertTrue(codigProximaPagina.contains("Bem vindo usuario teste"));
+         Assertions
+         .assertTrue(codigProximaPagina
+        		 .contains("Bem vindo usuario teste"));
     }
     
-    @Disabled
+    
     @Test
-    public void testAlert(){
-        driver.get("C:\\Users\\fatec.senai\\Documents\\qts\\src\\main\\java\\sistema\\login.html");
+    public void testLoginInvalido(){
+        driver.get(ENDERECO_SERVIDOR + "login.html");
 
         WebElement campoNome = driver.findElement(By.id("nome"));
         WebElement campoSenha = driver.findElement(By.id("senha"));
@@ -85,15 +89,15 @@ public class SeleniumTest {
          submit.click();
        
          Alert alert = driver.switchTo().alert();
-         Assertions.assertTrue(alert.getText().equals("usuario ou senha invalida"));
-         alert.accept();
-         
+         Assertions
+         .assertTrue(alert.getText().equals("usuario ou senha invalida"));
+         alert.accept();       
         
         
     }
     
    
-   // @AfterAll
+    @AfterAll
     public static void tearDown() {
         driver.quit();
     }
