@@ -58,6 +58,65 @@ public class SeleniumTestAula15 {
     			resultado.getText());
     }
     
+    @DisplayName("Deve multiplicar corretamente.")
+    @Test
+    public void testMultiplicacao(){
+    	// arrange
+    	driver.get(ENDERECO_SERVIDOR + "exercicio1.html");      
+    	String resultadoEsperado ="Resultado da mutiplicacao: 25"; 
+    	WebElement resultado = driver.findElement(By.id("resultado"));
+    	WebElement a = driver.findElement(By.id("a"));
+    	WebElement b = driver.findElement(By.id("b"));
+    	WebElement botao = driver.findElement(By.id("botao_multiplicar"));
+    	a.sendKeys("5");
+    	b.sendKeys("5");
+    	botao.click();
+    	
+    	// act, assert
+    	Assertions.assertEquals(resultadoEsperado, 
+    			resultado.getText());
+    }
+    
+    @DisplayName("teste de campos não Preenchidos")
+    @Test
+    public void testNaoPreencherCampos(){
+    	// arrange
+    	driver.get(ENDERECO_SERVIDOR + "exercicio1.html");      
+    	String resultadoEsperado ="preencha todos os campos";
+    	WebElement a = driver.findElement(By.id("a"));
+    	WebElement b = driver.findElement(By.id("b"));
+    	WebElement botao = driver.findElement(By.id("botao_multiplicar"));
+    	a.sendKeys("");
+    	b.sendKeys("5");
+    	botao.click();
+    	Alert alert = driver.switchTo().alert();
+    	
+    	// act, assert
+    	Assertions.assertEquals(resultadoEsperado, 
+    			alert.getText());
+    	 alert.accept();   
+    }
+    
+    @DisplayName("teste Campos com Caracteres Invalidos")
+    @Test
+    public void testCamposcomCaracteresInvalidos(){
+    	// arrange
+    	driver.get(ENDERECO_SERVIDOR + "exercicio1.html");      
+    	String resultadoEsperado ="digite somente numeros";
+    	WebElement a = driver.findElement(By.id("a"));
+    	WebElement b = driver.findElement(By.id("b"));
+    	WebElement botao = driver.findElement(By.id("botao_multiplicar"));
+    	a.sendKeys("ab");
+    	b.sendKeys("5");
+    	botao.click();
+    	Alert alert = driver.switchTo().alert();
+    	
+    	// act, assert
+    	Assertions.assertEquals(resultadoEsperado, 
+    			alert.getText());
+    	 alert.accept();   
+    }
+    
 //    @DisplayName("Teste o label do botao")
 //    @Test
 //    public void testLabelBotao(){
