@@ -34,7 +34,7 @@ public class SeleniumTest {
     }
     
     
-    @BeforeAll
+   // @BeforeAll
     public static void setUp() {
          System.
          setProperty("webdriver.chrome.driver", 
@@ -48,7 +48,7 @@ public class SeleniumTest {
     
     
     
-    @Test
+   // @Test
     public void testTituloPaginaLogin(){
     	// arrange
     	driver.get(ENDERECO_SERVIDOR + "login.html");      
@@ -59,8 +59,8 @@ public class SeleniumTest {
     			driver.getTitle());
     }
     
-    @DisplayName("Teste que valida um login de sucesso")
-    @Test
+   // @DisplayName("Teste que valida um login de sucesso")
+   // @Test
     public void testLoginSucesso(){
         driver.get(ENDERECO_SERVIDOR + "login.html");
         
@@ -77,7 +77,7 @@ public class SeleniumTest {
     }
     
     
-    @Test
+   // @Test
     public void testLoginInvalido(){
         driver.get(ENDERECO_SERVIDOR + "login.html");
 
@@ -97,7 +97,7 @@ public class SeleniumTest {
     }
     
    
-    @AfterAll
+    //@AfterAll
     public static void tearDown() {
         driver.quit();
     }

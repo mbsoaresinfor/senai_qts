@@ -203,6 +203,24 @@ public class CalculadoraTest {
 	}
 	
 	@Test
+	public void testMultiplicacaoComNull() {
+		// arrange
+		List<Double> lista = null;
+		Calculadora calculadora = new Calculadora();
+		Double resultadoMultiplicao = 6d;
+		
+		// ack
+		ResultadoCalculoVO resultado = calculadora.multiplicacao(lista);
+		
+		// assert
+		Assertions.assertNotNull(resultado);
+		Assertions.assertEquals(resultadoMultiplicao, resultado.resultado());
+		Assertions.assertFalse(resultado.temError());
+		Assertions.assertEquals("", resultado.mensagemError());
+		
+	}
+	
+	@Test
 	public void testMultiplicacaoComMaisCincoElementos() {
 		// arrange
 		List<Double> lista = Arrays.asList(1d,2d,3d,4d,6d,7d);

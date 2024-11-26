@@ -59,10 +59,10 @@ public class Calculadora {
 		
 		if(Objects.isNull(valores)) {
 			return  new ResultadoCalculoVO(0d,true,"lista vazia");
-		}
-		
-		if(valores.size() > 5) {
-			return  new ResultadoCalculoVO(0d,true,"Tamanho maximo de elementos [5]");
+		}else {		
+			if(valores.size() > 5) {
+				return  new ResultadoCalculoVO(0d,true,"Tamanho maximo de elementos [5]");
+			}
 		}
 		
 		
@@ -70,6 +70,7 @@ public class Calculadora {
 		for(Double valor : valores) {
 			mult = mult * valor;
 		}
+		
 		
 		return  new ResultadoCalculoVO(mult,false,"");
 		
