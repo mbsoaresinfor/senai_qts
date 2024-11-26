@@ -10,7 +10,7 @@ public class Calculadora {
 			System.out.println("erro nas entradas");
 			return -1d;			
 		}
-		return valor1 + valor2;
+		return valor1 - valor2;
 	}
 	
 	public Double somar(Double[] valores) {
