@@ -83,6 +83,7 @@ class CalculadoraTest {
 		
 		// assertion
 		Assertions.assertEquals(resultadoEsperado, resultado);
+		
 	}
 	
 	@DisplayName("Deve gerar uma excessao pois o vetor e null")
