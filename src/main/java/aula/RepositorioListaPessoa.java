@@ -22,7 +22,7 @@ public class RepositorioListaPessoa {
 		StringBuilder message = new StringBuilder();
 		// pega somente o nome
 		for(Pessoa pessoa : lista) {
-			String nome = pessoa.getNome().split(" ")[0];
+			String nome = pessoa.getNome().split(" ")[1];
 			message.append(nome).append("\n");
 		}		
 		return message.toString();

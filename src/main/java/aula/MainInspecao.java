@@ -35,7 +35,12 @@ public class MainInspecao {
 	
 	RepositorioListaPessoa banco = new RepositorioListaPessoa();
 	public static void main(String[] args) {
+		
+		
 		MainInspecao main = new MainInspecao();
+		
+		
+		
 		while(true) {
 		String opcao = JOptionPane.showInputDialog(null, "Selecione uma opcao\n1.Salvar\n2.Listar Nomes\n3.Listar salarios e descontos\n4.Sair");
 			if("1".equals(opcao)) {
@@ -101,9 +106,9 @@ public class MainInspecao {
 	// retorna FALSE, se pessoa tiver problemas nos seus dados, ou TRUE, se tudo estiver sido OK.
 	public  boolean validaPessoa(Pessoa pessoa) {
 		boolean ret = false;
-		if(pessoa.getNome().equals("") || pessoa.getNome().length() < 4 ) {
+		if(pessoa.getNome().equals("") || pessoa.getNome().length() < 2 ) {
 			ret = false;
-		}else if(pessoa.getSalario() < 0 || pessoa.getSalario() > 10000) {
+		}else if(pessoa.getSalario() < 0 || pessoa.getSalario() > 12000) {
 			ret = false;
 		}else {
 			return true;
@@ -115,7 +120,7 @@ public class MainInspecao {
 	public  float calculaDesconto(float salario) {
 		if(salario > 0 &&  salario <= 5000) {
 			return salario * 0.02f;
-		}else if(salario > 5000 &&  salario < 10000) {
+		}else if(salario > 5000 &&  salario <= 10000) {
 			return salario * 0.05f;
 		}
 		return 0;
