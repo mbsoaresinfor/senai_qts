@@ -56,6 +56,10 @@ public class Calculadora {
 	public ResultadoCalculoVO multiplicacao(List<Double> valores) {		
 		
 		if(Objects.isNull(valores)) {
+			return  new ResultadoCalculoVO(0d,true,"lista null");
+		}
+		
+		if(valores.isEmpty()) {
 			return  new ResultadoCalculoVO(0d,true,"lista vazia");
 		}
 		
@@ -64,7 +68,9 @@ public class Calculadora {
 		}
 		
 		
-		var mult = 0d;
+		// 2,3,4
+		// mult=2,6,24
+		var mult = 1d;
 		for(Double valor : valores) {
 			mult = mult * valor;
 		}

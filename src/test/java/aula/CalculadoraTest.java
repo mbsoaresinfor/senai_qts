@@ -2,6 +2,9 @@ package aula;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -102,5 +105,80 @@ class CalculadoraTest {
 		}
 
 	}
+	
+	@DisplayName("Deve retornar mensagem de erro = 'lista null' quando tem uma lista NULL")
+	@Test
+	public void testMultiplicacao() {
+		// arrange
+		Calculadora calc = new Calculadora();
+		ArrayList<Double> entrada1 = null;				
+				
+		// ack					
+		ResultadoCalculoVO resultado = calc.multiplicacao(entrada1);
+		
+		// assertion
+		Assertions.assertEquals("lista null", resultado.mensagemError());
+
+	}
+	
+	@DisplayName("Deve gerar retornar mensagem de erro = 'Tamanho maximo de elementos [5]'"
+			+ " quando a lista tiver mais de 5 elementos")
+	@Test
+	public void testMultiplicacao1() {
+		// arrange
+		Calculadora calc = new Calculadora();
+		ArrayList<Double> entrada1 =  new ArrayList<Double>();
+		entrada1.add(1d);
+		entrada1.add(1d);
+		entrada1.add(1d);
+		entrada1.add(1d);
+		entrada1.add(1d);
+		entrada1.add(1d);
+				
+		// ack					
+		ResultadoCalculoVO resultado = calc.multiplicacao(entrada1);
+		
+		// assertion
+		Assertions.assertEquals("Tamanho maximo de elementos [5]", resultado.mensagemError());
+
+	}
+
+	@DisplayName("Deve calcular a multiplicao")
+	@Test
+	public void testMultiplicacao2() {
+		// arrange
+		Calculadora calc = new Calculadora();
+		ArrayList<Double> entrada1 =  new ArrayList<Double>();
+		entrada1.add(1d);
+		entrada1.add(2d);
+		entrada1.add(3d);
+		entrada1.add(4d);
+		entrada1.add(5d);
+		Double resultadoEsperado = 120d;
+				
+		// ack					
+		ResultadoCalculoVO resultado = calc.multiplicacao(entrada1);
+		
+		// assertion
+		Assertions.assertEquals(resultadoEsperado, resultado.resultado());
+
+	}
+	
+	@DisplayName("Deve retornar o valor 0 pois a lista e vazia.")
+	@Test
+	public void testMultiplicacao3() {
+		// arrange
+		Calculadora calc = new Calculadora();
+		ArrayList<Double> entrada1 =  new ArrayList<Double>();		
+		Double resultadoEsperado = 0d;
+				
+		// ack					
+		ResultadoCalculoVO resultado = calc.multiplicacao(entrada1);
+		
+		// assertion
+		Assertions.assertEquals(resultadoEsperado, resultado.resultado());
+
+	}
+	
 
 }
