@@ -61,6 +61,30 @@ public class RepositorioListaPessoaTest {
 		Assertions.assertTrue(repositorio.lista.size() == 0);
 		
 	}
+	
+	@DisplayName("Deve retornar somente o primeiro nome da pessoa")
+	@Test
+	public void testListarPrimeiroPessoas() {
+		// arrange		
+		Pessoa pessoa1 = new Pessoa();
+		pessoa1.setNome("maria da silva");
+		Pessoa pessoa2 = new Pessoa();
+		pessoa2.setNome("jose cardoso");		
+		repositorio.salvarPessoa(pessoa1);
+		repositorio.salvarPessoa(pessoa2);
+		String resultadoEsperado = "maria\njose\n";
+		
+		// ack
+		String resultado = repositorio.listarPrimeiroPessoas();
+		// maria
+		// jose
+		
+		// assertion
+		Assertions.assertEquals(resultadoEsperado, resultado);
+
+		
+	}
 
 	
 }
+
