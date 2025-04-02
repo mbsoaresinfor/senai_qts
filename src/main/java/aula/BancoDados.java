@@ -135,6 +135,7 @@ public class BancoDados {
 				pessoa.setId(resultSet.getInt("id"));
 				pessoa.setNome(resultSet.getString("nome"));
 				pessoa.setIdade(resultSet.getInt("idade"));
+				pessoa.setSalario(resultSet.getFloat("salario"));
 
 			}
 

@@ -1,6 +1,7 @@
 package aula;
 
 import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
@@ -77,5 +78,46 @@ public class BancoDadosIntegracaoTest {
     	
     }
     
+    @Test
+    public void testUpdate() {
+    	// arrange
+    	Pessoa p1 = new Pessoa();
+    	p1.setIdade(18);
+    	p1.setNome("maria");
+    	p1.setSalario(50f);
+    	int id = banco.insertPessoa(p1);
+    	
+    	p1.setNome("maria_alterada");
+    	p1.setIdade(20);
+    	p1.setSalario(1000);
+    	
+    	// ack
+    	banco.updatePessoa(p1);    	
+    	
+    	// assert
+    	Pessoa pessoaAtualizada = banco.buscaPessoa(id);
+    	assertEquals("maria_alterada", pessoaAtualizada.getNome());
+    	assertEquals(20,pessoaAtualizada.getIdade());
+    	assertEquals(1000,pessoaAtualizada.getSalario());
+    }
+    
+    @Test
+    public void testBuscar() {
+    	// arrange
+    	Pessoa p1 = new Pessoa();
+    	p1.setIdade(18);
+    	p1.setNome("maria");
+    	p1.setSalario(50f);
+    	int id = banco.insertPessoa(p1);
+    	
+    	// ack
+    	Pessoa pessoaBuscada = banco.buscaPessoa(id);
+    	
+    	// assert
+    	assertEquals("maria", pessoaBuscada.getNome());
+    	assertEquals(18,pessoaBuscada.getIdade());
+    	assertEquals(50,pessoaBuscada.getSalario());
+    	
+    }
     
 }
