@@ -144,4 +144,20 @@ public class BancoDados {
 
 		return pessoa;
 	}
+	
+	public boolean deleteTodasPessoa() {
+		String sql = "delete from pessoa";
+		System.out.println("sql delete todas as pessoas" + sql);
+
+		try {
+			connection.createStatement().execute(sql);
+		} catch (Exception e) {
+			System.out.println("Error na remocao de todas as pessoa " + e);
+			return false;
+		}
+
+		return true;
+	}
+	
+	
 }
