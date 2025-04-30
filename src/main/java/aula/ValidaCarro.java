@@ -27,7 +27,9 @@ public class ValidaCarro {
     }
 	
 	 public boolean validaMarcaCarro(String marca){            
-       
+		 if(marca == null) {
+			 return false;
+		 }
         if(marca.equals("VW") || marca.equals("GM") ){
           return true;
         }        
