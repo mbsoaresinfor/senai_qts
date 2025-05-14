@@ -62,9 +62,18 @@ public class MainBancoDados {
 		this(new BancoDados());
 	}
 
+	public String deletar(Integer id) {
+		boolean resultado = banco.deletePessoa(id);
+		if(resultado == true) {
+			return "sucesso";
+		}else {
+			return "error";
+		}
+	}
+	
 	public boolean listarPessoas() {
 		if (banco.listPessoa().isEmpty()) {
-			return true;
+			return false;
 		}
 		for (Pessoa p : banco.listPessoa()) {
 			System.out.println("-------------------------------");

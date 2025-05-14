@@ -5,6 +5,8 @@ import java.util.Objects;
 
 public class Calculadora {
 
+	
+	
 	public Double somar(Double valor1, Double valor2) {
 		if(valor1 == null || valor2 == null) {
 			return null;
