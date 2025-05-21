@@ -12,6 +12,8 @@ import org.mockito.Mockito;
 
 public class ContaBancariaTest {
 
+	
+	
 	private ContaBancaria contaBancariaMock;
 
 	@BeforeEach
@@ -65,7 +67,7 @@ public class ContaBancariaTest {
 	public void testSacarDinheiro() {
 		// arrange
 		float resultadoEsperado = 30f;
-		when(contaBancariaMock.sacarDinheiro(10f)).thenReturn(30f);
+		when(contaBancariaMock.sacarDinheiro(10f)).thenReturn(resultadoEsperado);
 
 		// ack
 		float resultado = contaBancariaMock.sacarDinheiro(10f);
