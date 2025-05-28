@@ -96,7 +96,15 @@ public class Endereco {
 	        this.siafi = siafi;
 	    }
 
-	    public Map<String, Object> getAdditionalProperties() {
+	    
+	    @Override
+		public String toString() {
+			return "Endereco [cep=" + cep + ", logradouro=" + logradouro + ", complemento=" + complemento + ", bairro="
+					+ bairro + ", localidade=" + localidade + ", uf=" + uf + ", ibge=" + ibge + ", gia=" + gia
+					+ ", ddd=" + ddd + ", siafi=" + siafi + "]";
+		}
+
+		public Map<String, Object> getAdditionalProperties() {
 	        return this.additionalProperties;
 	    }
 
