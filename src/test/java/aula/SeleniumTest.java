@@ -17,6 +17,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 
 /**
  *
@@ -34,14 +37,11 @@ public class SeleniumTest {
     @BeforeAll
     public static void setUp() {
          System.setProperty("webdriver.chrome.driver", 
-	                "C:\\chromedriver_win32\\chromedriver.exe");
+	                "C:\\chromedriver-win64\\chromedriver.exe");
 	        
         
          driver = new ChromeDriver();
 
-        driver.get("C:\\Users\\fatec.senai\\Documents\\qts\\src\\main\\java\\sistema\\login.html");
-    
-        namePaginaPrincipal = driver.getWindowHandle();
     }
     
     
@@ -49,16 +49,19 @@ public class SeleniumTest {
     @Test
     public void testTituloPaginaLogin(){
     	// arrange
-    	driver.get("C:\\Users\\fatec.senai\\Documents\\qts\\src\\main\\java\\sistema\\login.html");      
+    	driver.get("http://localhost/login.html");      
     	String tituloExperado ="Pagina de Login"; 
         
-    	// act, assert
-    	Assertions.assertEquals(tituloExperado,driver.getTitle());
+    	// act,
+    	String resultado = driver.getTitle();
+    	
+    	// assert
+    	Assertions.assertEquals(tituloExperado,resultado);
     }
     
      @Test
-    public void testLogin(){
-        driver.get("C:\\Users\\fatec.senai\\Documents\\qts\\src\\main\\java\\sistema\\login.html");
+    public void testLoginSucesso(){
+        driver.get("http://localhost/login.html");
         
         WebElement campoNome = driver.findElement(By.id("nome"));
          WebElement campoSenha = driver.findElement(By.id("senha"));
@@ -71,8 +74,8 @@ public class SeleniumTest {
     }
     
     @Test
-    public void testAlert(){
-        driver.get("C:\\Users\\fatec.senai\\Documents\\qts\\src\\main\\java\\sistema\\login.html");
+    public void testLoginError(){
+        driver.get("http://localhost/login.html");
 
         WebElement campoNome = driver.findElement(By.id("nome"));
         WebElement campoSenha = driver.findElement(By.id("senha"));
