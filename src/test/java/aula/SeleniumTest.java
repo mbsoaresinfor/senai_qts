@@ -18,6 +18,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 /**
  *
  * @author marcelo.soares
@@ -25,23 +27,15 @@ import org.openqa.selenium.chrome.ChromeDriver;
  */
 public class SeleniumTest {
     
-      static WebDriver driver = null;
+     static WebDriver driver = null;
       
-      private static String namePaginaPrincipal ;
     public SeleniumTest() {
     }
     
     @BeforeAll
     public static void setUp() {
-         System.setProperty("webdriver.chrome.driver", 
-	                "C:\\chromedriver_win32\\chromedriver.exe");
-	        
-        
+         WebDriverManager.chromedriver().setup();
          driver = new ChromeDriver();
-
-        driver.get("C:\\Users\\fatec.senai\\Documents\\qts\\src\\main\\java\\sistema\\login.html");
-    
-        namePaginaPrincipal = driver.getWindowHandle();
     }
     
     
@@ -49,7 +43,7 @@ public class SeleniumTest {
     @Test
     public void testTituloPaginaLogin(){
     	// arrange
-    	driver.get("C:\\Users\\fatec.senai\\Documents\\qts\\src\\main\\java\\sistema\\login.html");      
+    	driver.get("ENDERECO_PAGINA\\login.html");      
     	String tituloExperado ="Pagina de Login"; 
         
     	// act, assert
@@ -58,7 +52,7 @@ public class SeleniumTest {
     
      @Test
     public void testLogin(){
-        driver.get("C:\\Users\\fatec.senai\\Documents\\qts\\src\\main\\java\\sistema\\login.html");
+        driver.get("ENDERECO_PAGINA\\\\login.html");
         
         WebElement campoNome = driver.findElement(By.id("nome"));
          WebElement campoSenha = driver.findElement(By.id("senha"));
@@ -72,7 +66,7 @@ public class SeleniumTest {
     
     @Test
     public void testAlert(){
-        driver.get("C:\\Users\\fatec.senai\\Documents\\qts\\src\\main\\java\\sistema\\login.html");
+        driver.get("ENDERECO_PAGINA\\\\login.html");
 
         WebElement campoNome = driver.findElement(By.id("nome"));
         WebElement campoSenha = driver.findElement(By.id("senha"));
