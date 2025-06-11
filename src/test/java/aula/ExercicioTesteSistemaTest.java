@@ -11,6 +11,7 @@ package aula;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -28,20 +29,18 @@ import io.github.bonigarcia.wdm.WebDriverManager;
  * @author marcelo.soares
  * Exemplo de teste de sistemas
  */
-public class SeleniumTest {
+public class ExercicioTesteSistemaTest {
     
       static WebDriver driver = null;
       
       private static String namePaginaPrincipal ;
-    public SeleniumTest() {
+    public ExercicioTesteSistemaTest() {
     }
     
     @BeforeAll
     public static void setUp() {
-//         System.setProperty("webdriver.chrome.driver", 
-//	                "C:\\chromedriver-win64\\chromedriver.exe");
-	        
     	WebDriverManager.chromedriver().setup();
+	        
         
          driver = new ChromeDriver();
 
@@ -52,8 +51,8 @@ public class SeleniumTest {
     @Test
     public void testTituloPaginaLogin(){
     	// arrange
-    	driver.get("http://localhost/login.html");      
-    	String tituloExperado ="Pagina de Login"; 
+    	driver.get("http://localhost/exercicio1.html");      
+    	String tituloExperado ="Exercicio"; 
         
     	// act,
     	String resultado = driver.getTitle();
@@ -63,35 +62,28 @@ public class SeleniumTest {
     }
     
      @Test
-    public void testLoginSucesso(){
-        driver.get("http://localhost/login.html");
-        
-        WebElement campoNome = driver.findElement(By.id("nome"));
-         WebElement campoSenha = driver.findElement(By.id("senha"));
-         WebElement submit = driver.findElement(By.id("submit"));
-         campoNome.sendKeys("teste");
-         campoSenha.sendKeys("123");
-         submit.click();
-         String codigProximaPagina =  driver.getPageSource();
-         Assertions.assertTrue(codigProximaPagina.contains("Bem vindo usuario teste"));
+    public void testBodyPagina(){
+    	// arrange
+     	driver.get("http://localhost/exercicio1.html");      
+     	String paginaEsperada ="Este e um exercicio Selenium."; 
+         
+     	// act,
+     	String resultado = driver.getPageSource();
+     	
+     	// assert
+     	Assertions.assertTrue(resultado.contains(paginaEsperada));
     }
     
+    @Disabled 
     @Test
-    public void testLoginError(){
-        driver.get("http://localhost/login.html");
-
-        WebElement campoNome = driver.findElement(By.id("nome"));
-        WebElement campoSenha = driver.findElement(By.id("senha"));
-         WebElement submit = driver.findElement(By.id("submit"));
-         campoNome.sendKeys("usuario_invalido");
-         campoSenha.sendKeys("senha_invalido");
-         submit.click();
-       
-         Alert alert = driver.switchTo().alert();
-         Assertions.assertTrue(alert.getText().equals("usuario ou senha invalida"));
-         alert.accept();
+    public void testTExtoButton(){
+    	// arrange
+    	driver.get("http://localhost/exercicio1.html");
+        String resultadoEsperado = "botao test";
+        WebElement button = driver.findElement(By.id("button"));
          
-        
+        // assert
+       Assertions.assertEquals(resultadoEsperado,button.getText());
         
     }
     
