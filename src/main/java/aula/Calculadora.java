@@ -11,7 +11,7 @@ public class Calculadora {
 		if(valor1 == null || valor2 == null) {
 			return null;
 		}
-		return valor1 + valor2 ;
+		return valor1 - valor2 ;
 	}
 	
 	public Double somar(Double[] valores) {
