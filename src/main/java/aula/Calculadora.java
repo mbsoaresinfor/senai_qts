@@ -37,7 +37,7 @@ public class Calculadora {
 		}
 		
 		return  new ResultadoCalculoVO(somador,false,"");
-		
+		   
 	}
 	
 	public Double subtrair(Double valor1, Double valor2) {

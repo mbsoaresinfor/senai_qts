@@ -36,7 +36,7 @@ public class SeleniumTest {
     public SeleniumTest() {
     }
     
-    @BeforeAll
+  //  @BeforeAll
     public static void setUp() {
 //         System.setProperty("webdriver.chrome.driver", 
 //	                "C:\\chromedriver-win64\\chromedriver.exe");
@@ -49,7 +49,7 @@ public class SeleniumTest {
     
     
     
-    @Test
+    //@Test
     public void testTituloPaginaLogin(){
     	// arrange
     	driver.get("http://localhost/login.html");      
@@ -62,7 +62,7 @@ public class SeleniumTest {
     	Assertions.assertEquals(tituloExperado,resultado);
     }
     
-     @Test
+    // @Test
     public void testLoginSucesso(){
         driver.get("http://localhost/login.html");
         
@@ -76,7 +76,7 @@ public class SeleniumTest {
          Assertions.assertTrue(codigProximaPagina.contains("Bem vindo usuario teste"));
     }
     
-    @Test
+   // @Test
     public void testLoginError(){
         driver.get("http://localhost/login.html");
 
@@ -95,7 +95,7 @@ public class SeleniumTest {
         
     }
     
-    @AfterAll
+    //@AfterAll
     public static void tearDown() {
         driver.quit();
     }

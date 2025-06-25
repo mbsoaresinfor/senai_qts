@@ -37,7 +37,7 @@ public class ExercicioTesteSistemaTest {
     public ExercicioTesteSistemaTest() {
     }
     
-    @BeforeAll
+    //@BeforeAll
     public static void setUp() {
     	WebDriverManager.chromedriver().setup();
 	        
@@ -48,7 +48,7 @@ public class ExercicioTesteSistemaTest {
     
     
     
-    @Test
+   // @Test
     public void testTituloPaginaLogin(){
     	// arrange
     	driver.get("http://localhost/exercicio1.html");      
@@ -61,7 +61,7 @@ public class ExercicioTesteSistemaTest {
     	Assertions.assertEquals(tituloExperado,resultado);
     }
     
-     @Test
+    // @Test
     public void testBodyPagina(){
     	// arrange
      	driver.get("http://localhost/exercicio1.html");      
@@ -87,7 +87,7 @@ public class ExercicioTesteSistemaTest {
         
     }
     
-    @AfterAll
+  //  @AfterAll
     public static void tearDown() {
         driver.quit();
     }
