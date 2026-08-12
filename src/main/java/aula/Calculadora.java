@@ -6,7 +6,7 @@ import java.util.Objects;
 public class Calculadora {
 
 	public Double somar(Double valor1, Double valor2) {
-		return valor1 + valor2;
+		return valor1 + valor2  ;
 	}
 	
 	public Double somar(Double[] valores) {
@@ -36,8 +36,11 @@ public class Calculadora {
 	}
 	
 	public Double subtrair(Double valor1, Double valor2) {
-		if(valor1 < 0 || valor2 > 1000) {
-			return null;
+		if(valor1 < 0 || valor2 < 0) {
+			return 0d;
+		}
+		if(valor1 > 1000 || valor2 > 1000) {
+			return 0d; 
 		}
 		
 		return valor1- valor2;
