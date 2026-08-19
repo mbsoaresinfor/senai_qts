@@ -36,7 +36,7 @@ public class MainInspecao {
 	RepositorioListaPessoa banco = new RepositorioListaPessoa();
 	public static void main(String[] args) {
 		MainInspecao main = new MainInspecao();
-		while(true) {
+		while(true) { 
 		String opcao = JOptionPane.showInputDialog(null, "Selecione uma opcao\n1.Salvar\n2.Listar Nomes\n3.Listar salarios e descontos\n4.Sair");
 			if("1".equals(opcao)) {
 				main.salvar();
