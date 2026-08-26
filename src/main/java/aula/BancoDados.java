@@ -144,4 +144,9 @@ public class BancoDados {
 
 		return pessoa;
 	}
+
+	public void limparBanco() {
+		// TODO Auto-generated method stub
+		
+	}
 }
