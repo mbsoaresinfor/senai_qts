@@ -64,7 +64,7 @@ public class MainBancoDados {
 
 	public boolean listarPessoas() {
 		if (banco.listPessoa().isEmpty()) {
-			return true;
+			return false;
 		}
 		for (Pessoa p : banco.listPessoa()) {
 			System.out.println("-------------------------------");
