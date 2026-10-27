@@ -1,5 +1,6 @@
 package aula;
 
+import static org.mockito.ArgumentMatchers.anyFloat;
 import static org.mockito.Mockito.when;
 
 import org.junit.jupiter.api.Assertions;
@@ -23,6 +24,28 @@ public class ContaCorrenteTest {
 
 		// ack, assertion
 		Assertions.assertEquals("João da Silva", conta.getNomeCorrentista());
+	}
+	
+	@Test
+	public void testDepositaDinheiro() {
+		// arrange
+		when(conta.depositaDinheiro(anyFloat()))
+			.thenReturn(200f);
+
+		// ack, assertion
+		Assertions.assertEquals(200f,
+				conta.depositaDinheiro(60f));
+	}
+	
+	@Test
+	public void testSacarDinheiro() {
+		// arrange
+		when(conta.sacarDinheiro(anyFloat()))
+			.thenReturn(30f);
+
+		// ack, assertion
+		Assertions.assertEquals(30f,
+				conta.sacarDinheiro(1000f));
 	}
 
 }
