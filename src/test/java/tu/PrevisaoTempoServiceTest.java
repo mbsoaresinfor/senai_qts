@@ -1,4 +1,4 @@
-package aula;
+package tu;
 
 import static org.mockito.Mockito.when;
 
@@ -6,6 +6,9 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+
+import aula.PrevisaoTempoService;
+import aula.Tempo;
 
 public class PrevisaoTempoServiceTest {
 

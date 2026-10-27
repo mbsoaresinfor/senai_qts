@@ -1,4 +1,4 @@
-package aula;
+package tu;
 /*
  * 
  * To change this template file, choose Tools | Templates
@@ -16,6 +16,10 @@ import java.util.ArrayList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+
+import aula.BancoDados;
+import aula.MainBancoDados;
+import aula.Pessoa;
 
 
 /**

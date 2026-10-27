@@ -1,4 +1,4 @@
-package aula;
+package tu;
 
 import static org.mockito.ArgumentMatchers.anyFloat;
 import static org.mockito.Mockito.when;
@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+
+import aula.ContaBancaria;
 
 public class ContaCorrenteTest {
 

@@ -1,9 +1,11 @@
-package aula6;
+package tu;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import aula6.APO;
 
 class APOTest {
 

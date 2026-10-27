@@ -1,4 +1,4 @@
-package aula;
+package integracao;
 
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
@@ -13,11 +13,14 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import aula.BancoDados;
+import aula.Pessoa;
+
 /**
  *  @author marcelo.soares
  *  Exemplo de teste de integração
  */
-public class BancoDadosIntegracaoTest {
+public class BancoDadosTest {
 
 	private static BancoDados banco;
     

@@ -1,7 +1,9 @@
-package aula4;
+package tu;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import aula4.ExercicioE1;
 
 public class ExercicioE1Test {
 

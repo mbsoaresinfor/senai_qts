@@ -1,9 +1,12 @@
-package aula8;
+package tu;
 
 import java.util.ArrayList;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import aula8.MainAula8;
+import aula8.Produto;
 
 public class MainAula8Test {
 
